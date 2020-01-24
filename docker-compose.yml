@@ -1,0 +1,40 @@
+---
+version: "3"
+services:
+  wordpress:
+    build: https://b02e5a0c7adff5406bd6e86e7b7349dd97a994ce@github.com/NUSOC/socwp-aws.git
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - /opt/efs/socwp-aws/wp-content/plugins:/var/www/wordpress/wp-content/plugins
+      - /opt/efs/socwp-aws/wp-content/themes:/var/www/wordpress/wp-content/themes
+      - /opt/efs/socwp-aws/wp-content/uploads:/var/www/wordpress/wp-content/uploads
+      - /opt/backups:/var/www/wordpress/wp-content/ai1wm-backups
+    environment:
+      WORDPRESS_DB_HOST: nusoc-externalapp-db.caog5ril1laa.us-east-2.rds.amazonaws.com:3306
+      WORDPRESS_DB_USER: $DBUSER
+      WORDPRESS_DB_PASSWORD: $DBPASS
+      WORDPRESS_DB_NAME: $DBNAME
+      WORDPRESS_TABLE_PREFIX: "wp_"
+      WORDPRESS_DEBUG: 0
+      WORDPRESS_CONFIG_EXTRA: |
+        define('FS_METHOD', 'direct' );
+        define('DISALLOW_FILE_EDIT', true );
+        define('WP_REDIS_HOST', 'socwp-redis.ajx38y.0001.use2.cache.amazonaws.com' );
+        define('WP_REDIS_MAXTTL', 86400 );
+        define('WPFC_MULTI_SITE_BETA', true );
+        define('SUNRISE', 'on' );
+        define('WP_ALLOW_MULTISITE', true );
+        define('MULTISITE', true );
+        define('SUBDOMAIN_INSTALL', false );
+        define('DOMAIN_CURRENT_SITE', '$SITENAME' );
+        define('PATH_CURRENT_SITE', '/' );
+        define('SITE_ID_CURRENT_SITE', 1 );
+        define('BLOG_ID_CURRENT_SITE', 1 );
+        define('WP_DEBUG', false );
+        define('WP_DEBUG_DISPLAY', false );
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"
