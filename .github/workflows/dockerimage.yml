@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - .github/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout master branch
+      uses: actions/checkout@v2
+    - name: Publish image
+      uses: matootie/github-docker@v2.2.1
+      with:
+        accessToken: ${{ secrets.BUILD_TOKEN }}
+        repositoryName: nusoc/docker
+        imageName: wordpress
+        imageTag: latest
