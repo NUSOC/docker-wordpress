@@ -2,7 +2,7 @@
 version: "3"
 services:
   wordpress:
-    build: https://b02e5a0c7adff5406bd6e86e7b7349dd97a994ce@github.com/NUSOC/socwp-aws.git
+    build: https://b02e5a0c7adff5406bd6e86e7b7349dd97a994ce@github.com/NUSOC/docker-wordpress.git
     restart: unless-stopped
     ports:
       - "80:80"
@@ -36,5 +36,5 @@ services:
         define('WP_DEBUG_DISPLAY', false );
     logging:
       options:
-        max-size: "5m"
+        max-size: "10m"
         max-file: "1"
