@@ -17,6 +17,6 @@ RUN yes 'no' | pecl install redis \
 COPY config/.htaccess /var/www/wordpress/.htaccess
 COPY config/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY config/opcache-recommended.ini /usr/local/etc/php/conf.d/opcache-recommended.ini
-RUN sed -i '/exec/i wp --allow-root --path=/var/www/wordpress core update' /usr/local/bin/docker-entrypoint.sh \
-&& sed -i '/Complete/i chown -R www-data:www-data /var/www/wordpress/wp-content/wflogs' /usr/local/bin/docker-entrypoint.sh
+RUN sed -i '/exec/i chown -R www-data:www-data /var/www/wordpress/wp-content/wflogs' /usr/local/bin/docker-entrypoint.sh \
+&& sed -i '/exec/i wp --allow-root --path=/var/www/wordpress core update' /usr/local/bin/docker-entrypoint.sh
 WORKDIR /var/www/wordpress
