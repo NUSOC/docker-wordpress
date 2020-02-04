@@ -33,9 +33,6 @@
   </FilesMatch>
 </IfModule>
 
-php_value realpath_cache_size 4M
-php_value realpath_cache_ttl 300
-
 php_value max_execution_time 60
 php_value max_input_time 600
 php_value memory_limit 256M
