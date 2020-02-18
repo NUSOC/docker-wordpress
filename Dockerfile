@@ -4,6 +4,7 @@ RUN mkdir /var/www/wordpress \
 && mkdir /var/www/wordpress/wp-content/plugins \
 && mkdir /var/www/wordpress/wp-content/themes \
 && mkdir /var/www/wordpress/wp-content/uploads \
+&& mkdir /var/www/wordpress/wp-content/cache \
 && chown -R www-data:www-data /var/www \
 && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 && chmod +x wp-cli.phar \
