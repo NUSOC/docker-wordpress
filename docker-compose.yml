@@ -10,6 +10,7 @@ services:
       - /opt/efs/socwp-aws/wp-content/plugins:/var/www/wordpress/wp-content/plugins
       - /opt/efs/socwp-aws/wp-content/themes:/var/www/wordpress/wp-content/themes
       - /opt/efs/socwp-aws/wp-content/uploads:/var/www/wordpress/wp-content/uploads
+      - /opt/efs/socwp-aws/wp-content/cache:/var/www/wordpress/wp-content/cache
       - /opt/backups:/var/www/wordpress/wp-content/ai1wm-backups
     environment:
       WORDPRESS_DB_HOST: nusoc-externalapp-db.caog5ril1laa.us-east-2.rds.amazonaws.com:3306
