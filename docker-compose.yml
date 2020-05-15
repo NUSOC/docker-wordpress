@@ -25,7 +25,6 @@ services:
         define('WP_REDIS_HOST', 'socwp-redis.ajx38y.0001.use2.cache.amazonaws.com' );
         define('WP_REDIS_MAXTTL', 86400 );
         define('WPFC_MULTI_SITE_BETA', true );
-        define('SUNRISE', 'on' );
         define('WP_ALLOW_MULTISITE', true );
         define('MULTISITE', true );
         define('SUBDOMAIN_INSTALL', false );

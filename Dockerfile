@@ -13,7 +13,6 @@ RUN mkdir /var/www/wordpress \
 RUN yes 'no' | pecl install redis \
 && echo extension=redis.so > /usr/local/etc/php/conf.d/redis.ini \
 && ln -s /var/www/wordpress/wp-content/plugins/redis-cache/includes/object-cache.php /var/www/wordpress/wp-content/object-cache.php \
-&& ln -s /var/www/wordpress/wp-content/plugins/wordpress-mu-domain-mapping/sunrise.php  /var/www/wordpress/wp-content/sunrise.php \
 && chown -R www-data:www-data /var/www/wordpress
 COPY config/.htaccess /var/www/wordpress/.htaccess
 COPY config/000-default.conf /etc/apache2/sites-available/000-default.conf
