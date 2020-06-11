@@ -9,7 +9,8 @@ RUN mkdir /var/www/wordpress \
 && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 && chmod +x wp-cli.phar \
 && mv wp-cli.phar /usr/local/bin/wp \
-&& a2enmod headers
+&& a2enmod headers \
+&& sed -i 's/KeepAlive Off/KeepAlive On/g' /etc/apache2/apache2.conf
 RUN yes 'no' | pecl install redis \
 && echo extension=redis.so > /usr/local/etc/php/conf.d/redis.ini \
 && ln -s /var/www/wordpress/wp-content/plugins/redis-cache/includes/object-cache.php /var/www/wordpress/wp-content/object-cache.php \
