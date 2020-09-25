@@ -24,10 +24,11 @@ services:
         define('DISALLOW_FILE_EDIT', true );
         define('WP_REDIS_HOST', 'socwp-redis.ajx38y.0001.use2.cache.amazonaws.com' );
         define('WP_REDIS_MAXTTL', 86400 );
+        define('WP_REDIS_PREFIX', '$DBNAME' );
         define('WPFC_MULTI_SITE_BETA', true );
         define('WP_ALLOW_MULTISITE', true );
         define('MULTISITE', true );
-        define('SUBDOMAIN_INSTALL', false );
+        define('SUBDOMAIN_INSTALL', true );
         define('DOMAIN_CURRENT_SITE', '$SITENAME' );
         define('PATH_CURRENT_SITE', '/' );
         define('SITE_ID_CURRENT_SITE', 1 );
