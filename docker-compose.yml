@@ -26,6 +26,7 @@ services:
         define('WP_REDIS_MAXTTL', 86400 );
         define('WP_REDIS_PREFIX', '$DBNAME' );
         define('WPFC_MULTI_SITE_BETA', true );
+        define('SUNRISE', 'off' );
         define('WP_ALLOW_MULTISITE', true );
         define('MULTISITE', true );
         define('SUBDOMAIN_INSTALL', true );
