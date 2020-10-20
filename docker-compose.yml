@@ -7,10 +7,10 @@ services:
     ports:
       - "80:80"
     volumes:
-      - /opt/efs/socwp-aws/wp-content/plugins:/var/www/wordpress/wp-content/plugins
-      - /opt/efs/socwp-aws/wp-content/themes:/var/www/wordpress/wp-content/themes
-      - /opt/efs/socwp-aws/wp-content/uploads:/var/www/wordpress/wp-content/uploads
-      - /opt/efs/socwp-aws/wp-content/cache:/var/www/wordpress/wp-content/cache
+      - /<shared_data_path>/wp-content/plugins:/var/www/wordpress/wp-content/plugins
+      - /<shared_data_path>/wp-content/themes:/var/www/wordpress/wp-content/themes
+      - /<shared_data_path>/wp-content/uploads:/var/www/wordpress/wp-content/uploads
+      - /<shared_data_path>/wp-content/cache:/var/www/wordpress/wp-content/cache
       - /opt/backups:/var/www/wordpress/wp-content/ai1wm-backups
     environment:
       WORDPRESS_DB_HOST: nusoc-externalapp-db.caog5ril1laa.us-east-2.rds.amazonaws.com:3306
@@ -25,6 +25,7 @@ services:
         define('WP_REDIS_HOST', 'socwp-redis.ajx38y.0001.use2.cache.amazonaws.com' );
         define('WP_REDIS_MAXTTL', 86400 );
         define('WP_REDIS_PREFIX', '$DBNAME' );
+        define('WP_CACHE_KEY_SALT', '$DBNAME' );
         define('WPFC_MULTI_SITE_BETA', true );
         define('WP_ALLOW_MULTISITE', true );
         define('MULTISITE', true );
