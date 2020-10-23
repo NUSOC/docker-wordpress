@@ -37,6 +37,7 @@ services:
         define('WP_DEBUG', false );
         define('WP_DEBUG_DISPLAY', false );
     logging:
+      driver: awslogs
       options:
-        max-size: "10m"
-        max-file: "1"
+        awslogs-region: us-east-2
+        awslogs-group: $SITENAME
