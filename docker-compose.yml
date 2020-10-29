@@ -26,6 +26,8 @@ services:
         define('WP_REDIS_MAXTTL', 86400 );
         define('WP_REDIS_PREFIX', '$DBNAME' );
         define('WP_CACHE_KEY_SALT', '$DBNAME' );
+        define('WP_REDIS_TIMEOUT', '5' );
+        define('WP_REDIS_READ_TIMEOUT', '5' );
         define('WPFC_MULTI_SITE_BETA', true );
         define('WP_ALLOW_MULTISITE', true );
         define('MULTISITE', true );
