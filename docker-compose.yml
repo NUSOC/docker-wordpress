@@ -39,6 +39,7 @@ services:
         define('WP_DEBUG', false );
         define('WP_DEBUG_DISPLAY', false );
         define('WP_POST_REVISIONS', 10 );
+        define('WP_AUTO_UPDATE_CORE', false );
     logging:
       driver: awslogs
       options:
