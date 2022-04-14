@@ -15,4 +15,5 @@ COPY config/.htaccess /var/www/wordpress/.htaccess
 COPY config/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY config/opcache-recommended.ini /usr/local/etc/php/conf.d/opcache-recommended.ini
 COPY config/mpm_prefork.conf /etc/apache2/mods-available/mpm_prefork.conf
+COPY config/robots.txt /var/www/wordpress/robots.txt
 WORKDIR /var/www/wordpress
