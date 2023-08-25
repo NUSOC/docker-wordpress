@@ -1,4 +1,4 @@
-FROM wordpress:php7.4-apache
+FROM wordpress:php8.1-apache
 RUN mkdir /var/www/wordpress \
 && mkdir /var/www/wordpress/wp-content \
 && mkdir /var/www/wordpress/wp-content/plugins \
